@@ -1,0 +1,45 @@
+==========================
+    구체적인 그림
+==========================
+프론트엔드 구성[UI]
+1) 게시글 메인페이지 
+   게시글 리스트들 출력 (GET)
+   게시글 검색
+   게시글 클릭 -> 게시글 내용 페이지
+   게시글 올리기 버튼 -> 게시글 등록 페이지
+
+   2) 게시글 등록 페이지
+       텍스트 작성 필드
+       등록 버튼 -> 게시글 내용 페이지 (POST)
+
+
+   3) 게시글 내용 페이지 
+      등록날짜 / 게시글 텍스트 내용 출력       (GET)
+      수정 버튼 -> 게시글 등록 페이지           (POST)
+      제거 버튼 -> 게시글 메인 페이지           (POST)
+
+   
+등록 : POST Json 파일 전송(submit)-> 게시글Id, 작성자, 제목, 내용, 등록일
+제거 : POST Json 파일 전송(submit)-> 게시글id
+수정 : POST Json 파일 전송(submit)-> 게시글id, 수정일
+읽기 : GET 요청-> 게시글id
+
+
+백엔드 주요 구성
+등록 : POST Json 파일 전송(submit)-> 게시글Id, 작성자, 제목, 내용, 등록일-> DB 저장 처리
+제거 : POST Json 파일 전송(submit)-> 게시글id-> DB 조회 후 삭제 처리
+수정 : POST Json 파일 전송(submit)-> 게시글id, 수정일->
+읽기 : GET 요청-> 게시글id
+
+=============================================
+    DB, 브랜치 전략
+=============================================
+게시판 테이블
+   -> 게시글Id, 작성자, 제목, 내용, 등록일, 수정일
+
+main -> dev -> backend -> model
+            dev -> backend -> controller
+            dev -> backend -> routes, config
+            dev -> frontend -> mainpage
+            dev -> frontend -> boardpage
+            dev -> frontend -> registerpage
